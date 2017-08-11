@@ -8,7 +8,7 @@ phases:
   pre_build:
     commands:
       - mkdir repo
-      - aws s3 sync repo s3://${YUM_REPO_BUCKET}
+      - aws s3 sync s3://${YUM_REPO_BUCKET} repo
       - tree repo
   build:
     commands:
