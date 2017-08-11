@@ -4,7 +4,6 @@ phases:
   install:
     commands:
       - yum install -y createrepo tree
-      - echo ${YUM_REPO_BUCKET}
   pre_build:
     commands:
       - mkdir repo
@@ -12,5 +11,8 @@ phases:
       - tree repo
   build:
     commands:
+      - set -f && repos=(${REPO_LOCATIONS//;/ })
+      - for x in "${repos[@]}"; do createrepo -v --update repo/${x}; done
+      - tree repo
   post_build:
     commands:
