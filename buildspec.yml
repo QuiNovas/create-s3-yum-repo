@@ -3,12 +3,13 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum install -y createrepo
+      - yum install -y createrepo tree
       - echo ${YUM_REPO_BUCKET}
   pre_build:
     commands:
       - mkdir repo
       - aws s3 sync repo s3://${YUM_REPO_BUCKET}
+      - tree repo
   build:
     commands:
   post_build:
