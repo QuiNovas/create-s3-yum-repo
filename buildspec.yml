@@ -12,7 +12,7 @@ phases:
   build:
     commands:
       - set -f && repos=(${REPO_LOCATIONS//;/ })
-      - for x in "${repos[@]}"; do createrepo -v repo/${x}; done
+      - createrepo -v repo/main
       - tree repo
   post_build:
     commands:
