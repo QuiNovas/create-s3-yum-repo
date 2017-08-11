@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+  pre_build:
+    commands:
+      - aws --version
+      - which createrepo
+  build:
+    commands:
+  post_build:
+    commands:
