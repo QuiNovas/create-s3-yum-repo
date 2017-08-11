@@ -18,3 +18,4 @@ phases:
       - tree repo
   post_build:
     commands:
+      - aws s3 sync repo s3://${YUM_REPO_BUCKET}
