@@ -3,10 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
+      - yum install -y createrepo
   pre_build:
     commands:
-      - aws --version
-      - which createrepo
   build:
     commands:
   post_build:
