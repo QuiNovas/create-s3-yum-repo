@@ -11,8 +11,11 @@ phases:
       - tree repo
   build:
     commands:
-      - set -f && repos=(${REPO_LOCATIONS//;/ })
-      - for x in "${repos[@]}"; do echo repo/$x; done
+      - |-
+        set -f && repos=(${REPO_LOCATIONS//;/ })
+        for x in "${repos[@]}"; do
+        createrepo -v repo/$x;
+        done
       - tree repo
   post_build:
     commands:
