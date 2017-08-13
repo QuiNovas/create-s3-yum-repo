@@ -13,8 +13,6 @@ phases:
     commands:
       - |-
         for x in $REPO_LOCATIONS; do
-        aws s3 rm s3://${YUM_REPO_BUCKET}/$x/repodata --recursive
-        rm -rf repo/$x/repodata
         createrepo -v repo/$x;
         done
       - tree repo
