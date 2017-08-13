@@ -13,6 +13,7 @@ phases:
     commands:
       - |-
         for x in $REPO_LOCATIONS; do
+        rm -rf repo/$x/repodata
         createrepo -v repo/$x;
         done
       - tree repo
